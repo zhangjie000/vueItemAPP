@@ -4,7 +4,7 @@
         <div class="left">
             <router-link :to='routerLink'></router-link>
         </div>
-        <h2>理财产品</h2>
+        <h2>{{headerTitle}}</h2>
    </div>
 </div>
 
@@ -13,6 +13,10 @@
 export default{
     props:{
         routerLink:{
+            type:String,
+            required:true
+        },
+        headerTitle:{
             type:String,
             required:true
         }

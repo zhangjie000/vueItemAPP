@@ -1,7 +1,7 @@
 <template>
 
 <div id="app">
-    <Header :headerLink="headerLink"></Header>
+    <Header  :headerTitle="headerTitle"  :routerLink="routerLink"></Header>
     <bannerCarcousel></bannerCarcousel>
    <!--  导航内容 -->
    <ul class="indexNavLinkList">
@@ -124,7 +124,10 @@ export default {
           normalTitemTime:"60"
         }
       ],
-      headerLink:"/"
+      //头部链接
+      routerLink:"/",
+      //头部内容
+      headerTitle:"理财产品"
     }
   },
   methods:{
