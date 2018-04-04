@@ -36,7 +36,9 @@ export default{
   },
   data(){
     return {
+        /*导航内容*/
         navList:['全部','项目1','项目2','项目3'],
+        /*普通项目内容*/
         normalItemList:[
         {
           normalItemTitle:"普通项目 0001",
@@ -54,6 +56,7 @@ export default{
     }
   },
   methods:{
+    /*普通项目切换内容*/
     navActiveClick(index){
         if(index ==0 ) {
             this.normalItemList=[
