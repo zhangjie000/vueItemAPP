@@ -2,7 +2,7 @@
 <div>
    <div class="header">
         <div class="left">
-            <a href="javscropt:;"></a>
+            <router-link :to='routerLink'></router-link>
         </div>
         <h2>理财产品</h2>
    </div>
@@ -10,7 +10,14 @@
 
 </template>
 <script>
-
+export default{
+    props:{
+        routerLink:{
+            type:String,
+            required:true
+        }
+    }
+}
 </script>
 <style scoped lang="scss">
 @function p($px){
@@ -19,6 +26,7 @@
 .header{
     height:p(88px);
     position: relative;
+    background:#fff;
     h2{
         text-align:center;
         line-height:p(88px);
