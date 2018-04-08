@@ -26,6 +26,11 @@ html,body{
 html,body,p,h1,h2,h3,h4,h5,h6,ul,li,ol,textarea,input{
     margin:0px;
     padding:0px;
+
+
+}
+*{
+   box-sizing:border-box;
 }
 h1,h2,h3,h4,h5,h6{
     font-weight:normal;
@@ -44,7 +49,21 @@ body{
     background-color:#f5f5f5;
 }
 
+input{
+  outline:none;
+}
 
+.redColor{
+  color:#ff716B;
+}
+.mainColor1{
+  color:#ffbb20;
+}
+
+.LiearGradientMain2{
+   background-image: -webkit-linear-gradient(-90deg, #ffbb20, #f90 80%, #f90 100%);
+    background-image: linear-gradient(-90deg, #ffbb20 0%, #f90 80%, #f90 100%);
+}
 /* 普通项目样式 */
 
 .normalItem{

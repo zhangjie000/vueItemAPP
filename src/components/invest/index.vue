@@ -111,6 +111,7 @@ export default{
 
         }
     },
+    /*点击跳转到购买详情*/
     normalItemLink(){
         this.$router.push({path:'/investDetails'})
     }

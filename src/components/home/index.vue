@@ -1,7 +1,12 @@
 <template>
 
 <div id="app">
-    <Header  :headerTitle="headerTitle"  :routerLink="routerLink"></Header>
+    <div class="header">
+        <div class="left">
+            <router-link to='/'></router-link>
+        </div>
+        <h2>理财产品</h2>
+   </div>
     <bannerCarcousel></bannerCarcousel>
    <!--  导航内容 -->
    <ul class="indexNavLinkList">
@@ -50,7 +55,7 @@
       <div class="progressCir">
         60%
       </div>
-      <router-link class="rightbtn"  to="/investDetails">立即购买</router-link><!--
+      <router-link class="rightbtn LiearGradientMain2"  to="/investDetails">立即购买</router-link><!--
       <a href="#"></a> -->
    </div>
  <!-- 普通项目 -->
@@ -82,12 +87,10 @@
 </template>
 
 <script>
-import Header from '@/components/common/header'
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
 export default {
  components: {
-    Header,
     Footer,
     bannerCarcousel,
 
@@ -124,10 +127,7 @@ export default {
           normalTitemTime:"60"
         }
       ],
-      //头部链接
-      routerLink:"/",
-      //头部内容
-      headerTitle:"理财产品"
+
     }
   },
   methods:{
@@ -158,6 +158,30 @@ export default {
     @function p($px){
         @return $px/75px*1rem;
     }
+.header{
+    height:p(88px);
+    position: relative;
+    background:#fff;
+    h2{
+        text-align:center;
+        line-height:p(88px);
+        font-size:p(38px);
+    }
+    .left{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width: p(88px);
+        height:100%;
+        a{
+            display:inline-block;
+            width: p(88px);
+            height:100%;
+            background:url(../../assets/images/bellIcon.png) center center no-repeat;
+            background-size:p(35px) p(40px);
+        }
+    }
+}
 .indexNavLinkList {
   background:#fff;
   overflow:hidden;
@@ -256,8 +280,7 @@ export default {
     width: p(507px);
     height:p(81px);
     line-height:p(81px);
-    background-image: -webkit-linear-gradient(-90deg, #ffbb20, #f90 80%, #f90 100%);
-    background-image: linear-gradient(-90deg, #ffbb20 0%, #f90 80%, #f90 100%);
+
     border-radius:p(40px);
     font-size: p(32px);
     color: #fff;

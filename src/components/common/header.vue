@@ -2,7 +2,7 @@
 <div>
    <div class="header">
         <div class="left">
-            <router-link :to='routerLink'></router-link>
+            <router-link :to='routerLink'>></router-link>
         </div>
         <h2>{{headerTitle}}</h2>
    </div>
@@ -23,7 +23,7 @@ export default{
     }
 }
 </script>
-<style scoped lang="scss">
+<style  lang="scss">
 @function p($px){
     @return $px/75px*1rem;
 }
@@ -46,8 +46,12 @@ export default{
             display:inline-block;
             width: p(88px);
             height:100%;
-            background:url(../../assets/images/bellIcon.png) center center no-repeat;
-            background-size:p(35px) p(40px);
+            background:#fff;
+            line-height:p(88px);
+            text-align:center;
+            font-size:p(60px);
+            color:#333;
+            font-family:"楷体";
         }
     }
 }
