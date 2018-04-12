@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "echarts": "^4.0.4",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.7.2",
     "px2rem-loader": "^0.1.7",

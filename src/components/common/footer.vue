@@ -5,7 +5,7 @@
        <ul class="footerList">
             <li ><router-link to="/" >首页</router-link></li>
             <li><router-link to="/investIndex" >投资</router-link></li>
-            <li>我的</li>
+            <li><router-link to="/mainIndex">我的</router-link></li>
         </ul>
     </div>
 </template>

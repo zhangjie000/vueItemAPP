@@ -3,14 +3,24 @@
 <div id="app">
     <div class="container">
       <keep-alive>
-        <router-view></router-view>
+        <router-view v-if="routerLoad"></router-view>
       </keep-alive>
     </div>
 </div>
 </template>
 <script>
 export default {
-
+  data() {
+    return {
+      routerLoad:true
+    }
+  },
+  methods:{
+    reload () {
+         this.isRouterAlive = false
+         this.$nextTick(() => (this.isRouterAlive = true))
+    }
+  }
 }
 </script>
 
@@ -63,6 +73,12 @@ input{
 .LiearGradientMain2{
    background-image: -webkit-linear-gradient(-90deg, #ffbb20, #f90 80%, #f90 100%);
     background-image: linear-gradient(-90deg, #ffbb20 0%, #f90 80%, #f90 100%);
+}
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
 }
 /* 普通项目样式 */
 
