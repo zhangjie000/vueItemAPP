@@ -127,7 +127,14 @@ export default {
           normalTitemTime:"60"
         }
       ],
+<<<<<<< HEAD
 
+=======
+      //头部链接
+      routerLink:"/",
+      //头部内容
+      headerTitle:"理财产品"
+>>>>>>> 9d7f58e473f8ac894182bafde2827cd45a40499c
     }
   },
   methods:{
