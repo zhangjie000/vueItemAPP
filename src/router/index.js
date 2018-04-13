@@ -8,8 +8,10 @@ import buyNow from "@/components/invest/buyNow"
 /*home文件*/
 import homeIndex from "@/components/home/index"
 /*main文件夹*/
-import  mainIndex from "@/components/main/index"
+import mainIndex from "@/components/main/index"
 import userCenter from "@/components/main/userCenter"
+import voucher from "@/components/main/voucher"
+import funds from "@/components/main/funds"
 /*成功页面回调callBack文件夹*/
 import bidSuccess from "@/components/callBack/bidSuccess"
 
@@ -48,9 +50,19 @@ export default new Router({
         path:"/mainIndex",
         component:mainIndex
     },
+   /* 用户中心*/
     {
         path:"/userCenter",
         component:userCenter
+    },
+    /*我的赠券*/
+    {
+        path:"/voucher",
+        component:voucher
+    },
+    {
+        path:'/funds',
+        component:funds
     }
 
 

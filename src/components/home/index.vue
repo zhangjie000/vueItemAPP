@@ -87,13 +87,78 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import md5 from 'js-md5'
+import qs from 'qs'
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
+/*let instance = axios.create({
+headers: {'content-type': 'application/x-www-form-urlencoded'}
+});*/
+Vue.prototype.GetSign1 = function (obj) {
+  if (obj === undefined) { obj = {} }
+
+  //已经排好好顺序的对象
+  function sort(obj) {
+    if (obj instanceof Array) {
+      return obj
+    }
+    var newObj = {}
+    Object.keys(obj).sort().forEach(function (key) {
+      var o = obj[key]
+      if (o instanceof Object) {
+        o = sort(o)
+      }
+      newObj[key] = o
+    })
+    return newObj
+  }
+
+
+  //临时签名对象
+  const sign_data = {
+    Data: obj,
+    Global: { IMEI: "", IMSI: "", IP: "", OS: 2, Sign: "", Token: "" }
+  }
+
+  const data = {
+    Data: obj,
+    Global: {
+      IMEI: "", IMSI: "", IP: "", OS: 2,
+      Sign: md5(JSON.stringify(sort(sign_data)) + ')(4AzEdr5J6a`@#$*%'),
+      Token: ""
+    }
+  }
+  return md5
+}
+
+ //1.排好序 排序的函数
+ /*var = {
+    "Mobile": "13036707229",
+    "Password": "ai050618"
+ }
+  function objKeySort(arys) {
+      //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
+      var newkey = Object.keys(arys).sort();　　
+      //console.log('newkey='+newkey);
+      var newObj = {}; //创建一个新的对象，用于存放排好序的键值对
+      for(var i = 0; i < newkey.length; i++) {
+          //遍历newkey数组
+          newObj[newkey[i]] = arys[newkey[i]];
+          //向新创建的对象中按照排好的顺序依次增加键值对
+
+      }
+      return newObj; //返回排好序的新对象
+  }*/
+//1.
+
+
+//console.log(Vue.GetSign({"abgg":12,"aa":11}))
 export default {
  components: {
     Footer,
     bannerCarcousel,
-
   },
   name: 'App',
   data () {
@@ -127,22 +192,19 @@ export default {
           normalTitemTime:"60"
         }
       ],
-<<<<<<< HEAD
-
-=======
       //头部链接
       routerLink:"/",
       //头部内容
       headerTitle:"理财产品"
->>>>>>> 9d7f58e473f8ac894182bafde2827cd45a40499c
     }
   },
   methods:{
     normalItemPath(){
       this.$router.push({path:'/investDetails'})
-    }
+    },
+
   },
-   computed: {
+  computed: {
     top() {
       return - this.activeIndex *  0.61333+ 'rem';
     }
@@ -156,8 +218,106 @@ export default {
       }
     },1000)
 
+    axios.post('/api/100', )
+    .then(response => {
+      console.log(111)
+      console.log(response.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 
+
+    function GetSign(obj) {
+      if (obj === undefined) { obj = {} }
+
+      //已经排好好顺序的对象
+      function sort(obj) {
+        if (obj instanceof Array) {
+          return obj
+        }
+        var newObj = {}
+        Object.keys(obj).sort().forEach(function (key) {
+          var o = obj[key]
+          if (o instanceof Object) {
+            o = sort(o)
+          }
+          newObj[key] = o
+        })
+        return newObj
+      }
+
+
+      //临时签名对象
+      const sign_data = {
+        "query": obj,
+        "global": { "IMEI": "", "IMSI": "", "IP": "", "OS": 1, "Sign": "", "Token": "" }
+        }
+        let  str2= str2UTF8(JSON.stringify( sort(sign_data) + ')(4AzEdr5J6a`@#$*%' ) );
+        var  bf=md5(   str2    )._digest;
+       /* forEach(let val in bf){
+          console.log(val);
+        }*/
+        console.log(md5( str2 ));
+        console.log(bf);
+      const data = {
+        "query": obj,
+        "global": {
+          "IMEI": "", "IMSI": "", "IP": "", "OS": 1,
+          "Sign":  md5(   str2    ),
+           "Token": ""
+        }
+      }
+      return data
+    }
+    console.log(GetSign({"aba": "123","aac": "fez"}))
+
+    function str2UTF8(str){
+        var bytes = new Array();
+        var len,c;
+        len = str.length;
+        for(var i = 0; i < len; i++){
+            c = str.charCodeAt(i);
+            if(c >= 0x010000 && c <= 0x10FFFF){
+                bytes.push(((c >> 18) & 0x07) | 0xF0);
+                bytes.push(((c >> 12) & 0x3F) | 0x80);
+                bytes.push(((c >> 6) & 0x3F) | 0x80);
+                bytes.push((c & 0x3F) | 0x80);
+            }else if(c >= 0x000800 && c <= 0x00FFFF){
+                bytes.push(((c >> 12) & 0x0F) | 0xE0);
+                bytes.push(((c >> 6) & 0x3F) | 0x80);
+                bytes.push((c & 0x3F) | 0x80);
+            }else if(c >= 0x000080 && c <= 0x0007FF){
+                bytes.push(((c >> 6) & 0x1F) | 0xC0);
+                bytes.push((c & 0x3F) | 0x80);
+            }else{
+                bytes.push(c & 0xFF);
+            }
+        }
+        return bytes;
+    }
+    /*//1.第一步排好序
+    function objKeySort(arys) {
+        //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
+        var newkey = Object.keys(arys).sort();　　
+        //console.log('newkey='+newkey);
+        var newObj = {}; //创建一个新的对象，用于存放排好序的键值对
+        for(var i = 0; i < newkey.length; i++) {
+            //遍历newkey数组
+            newObj[newkey[i]] = arys[newkey[i]];
+            //向新创建的对象中按照排好的顺序依次增加键值对
+
+        }
+        return newObj; //返回排好序的新对象
+    }
+    let SortData=objKeySort({"aaa": "","ccc": "1","fff": "0","aa": "0","ddd": "0", "bbb": ""})
+    //2.字符串+k
+    let SortDataStr=JSON.stringify(sort(sign_data)) + 'key'
+    //3.转字节 utf-8
+    let SortDataStrJie=*/
   }
+
+
 }
 </script>
 
