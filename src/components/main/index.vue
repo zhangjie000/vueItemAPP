@@ -93,7 +93,7 @@ export default{
                 },
                 {
                     name:"投资记录",
-                    link:"/",
+                    link:"/InvestRecord",
                 },
                 {
                     name:"投资详情",

@@ -9,6 +9,12 @@ export default {
      components:{
         Header
     },
+    data () {
+        return {
+            headerTitle:"投资记录",
+            routerLink:'/mainIndex'
+        }
+    }
 }
 
 </script>
