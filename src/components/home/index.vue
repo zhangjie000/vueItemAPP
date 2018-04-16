@@ -87,15 +87,28 @@
 </template>
 
 <script>
+import {
+  backendOrderOrg,
+  baidu,
+  urlList,
+  prize
+} from "./../../api/api.js"
 import Vue from 'vue'
 import axios from 'axios'
 import md5 from 'js-md5'
 import qs from 'qs'
+
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
 /*let instance = axios.create({
 headers: {'content-type': 'application/x-www-form-urlencoded'}
 });*/
+
+console.log(backendOrderOrg())
+console.log(baidu())
+console.log(urlList())
+console.log(prize())
+
 Vue.prototype.GetSign1 = function (obj) {
   if (obj === undefined) { obj = {} }
 
@@ -209,16 +222,22 @@ export default {
       return - this.activeIndex *  0.61333+ 'rem';
     }
   },
+  created(){
+
+
+  },
   mounted() {
+
     setInterval(_ => {
       if(this.activeIndex < this.noticeList.length-1) {
         this.activeIndex += 1;
       } else {
         this.activeIndex = 0;
       }
+
     },1000)
 
-    axios.post('/api/100', )
+    axios.post('/api/Home/LoadPrizes', )
     .then(response => {
       console.log(111)
       console.log(response.data);
@@ -226,8 +245,6 @@ export default {
     .catch(err => {
       console.log(err);
     });
-
-
     function GetSign(obj) {
       if (obj === undefined) { obj = {} }
 
