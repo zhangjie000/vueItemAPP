@@ -23,7 +23,8 @@
     "sass-loader": "^6.0.7",
     "vue": "^2.5.2",
     "vue-concise-slider": "^2.4.8",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "jquery" : "^2.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -87,12 +87,12 @@
 </template>
 
 <script>
-import {
+/*import {
   backendOrderOrg,
   baidu,
   urlList,
   prize
-} from "./../../api/api.js"
+} from "./../../api/api.js"*/
 import Vue from 'vue'
 import axios from 'axios'
 import md5 from 'js-md5'
@@ -100,14 +100,8 @@ import qs from 'qs'
 
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
-/*let instance = axios.create({
-headers: {'content-type': 'application/x-www-form-urlencoded'}
-});*/
 
-console.log(backendOrderOrg())
-console.log(baidu())
-console.log(urlList())
-console.log(prize())
+const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
 
 Vue.prototype.GetSign1 = function (obj) {
   if (obj === undefined) { obj = {} }
@@ -224,27 +218,42 @@ export default {
   },
   created(){
 
-
   },
   mounted() {
-
     setInterval(_ => {
       if(this.activeIndex < this.noticeList.length-1) {
         this.activeIndex += 1;
       } else {
         this.activeIndex = 0;
       }
-
     },1000)
 
-    axios.post('/api/Home/LoadPrizes', )
+   /* axios.get('http://check.account.czytest.colourlife.com/backend/order/org', )
     .then(response => {
-      console.log(111)
       console.log(response.data);
     })
     .catch(err => {
       console.log(err);
-    });
+    });*/
+    axios.post('http://hyft.www.hyft88.com/Home/LoadPrizes').then(json => {　
+        console.log(json.data)
+        console.log(1111)
+      }).catch(err => {
+      　　console.log(err)
+    })
+      $.ajax({
+        url:"http://hyft.www.hyft88.com/Home/LoadPrizes",
+        type:"post",
+        success:function (res) {
+            console.log(res)
+        }
+      })
+    axios.post('https://zhihu-web-analytics.zhihu.com/api/v1/logs/batch' ).then(json => {　
+        console.log(json.data)
+      }).catch(err => {
+      　　console.log(err)
+      })
+
     function GetSign(obj) {
       if (obj === undefined) { obj = {} }
 

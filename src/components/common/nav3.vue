@@ -26,8 +26,6 @@ export default{
     }
 }
 
-
-
 </script>
 <style scoped lang="scss">
 @function p($px) {

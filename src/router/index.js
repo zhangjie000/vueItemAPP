@@ -1,19 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from '@/App'
+
 /*invest文件夹*/
 import investIndex from "@/components/invest/index"
 import investDetails from "@/components/invest/investDetails"
 import buyNow from "@/components/invest/buyNow"
 /*home文件*/
 import homeIndex from "@/components/home/index"
+
 /*main文件夹*/
 import mainIndex from "@/components/main/index"
 import userCenter from "@/components/main/userCenter"
 import voucher from "@/components/main/voucher"
 import funds from "@/components/main/funds"
+import InvestRecord from "@/components/main/InvestRecord"
+import spread from "@/components/main/spread"
+
 /*成功页面回调callBack文件夹*/
 import bidSuccess from "@/components/callBack/bidSuccess"
+
+/*登录注册页面 passport文件夹*/
+import login from "@/components/passport/login"
 
 
 Vue.use(Router)
@@ -60,11 +68,26 @@ export default new Router({
         path:"/voucher",
         component:voucher
     },
+    /*资金明细*/
     {
         path:'/funds',
         component:funds
+    },
+    /*投资详情*/
+    {
+        path:'/InvestRecord',
+        component:InvestRecord
+    },
+    /*推荐管理*/
+    {
+        path:"/spread",
+        component:spread
+    },
+    /*登录页面*/
+    {
+        path:"/login",
+        component:login
     }
-
 
   ]
 })

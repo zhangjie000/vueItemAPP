@@ -24,9 +24,11 @@ export default{
 }
 </script>
 <style  lang="scss">
+
 @function p($px){
     @return $px/75px*1rem;
 }
+
 .header{
     height:p(88px);
     position: relative;

@@ -97,15 +97,15 @@ export default{
                 },
                 {
                     name:"投资详情",
-                    link:"/",
+                    link:"/InvestRecord",
                 },
                 {
                     name:"推荐管理",
-                    link:"/",
+                    link:"/spread",
                 },
                 {
                     name:"关于我们",
-                    link:"/",
+                    link:"/login",
                 }
 
             ]
