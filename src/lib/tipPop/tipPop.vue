@@ -1,5 +1,4 @@
 <template>
-
       <!-- 全局提示框 -->
       <div v-show="visible" class="dialog-tips dialog-center">
           <div>{{message}}</div>

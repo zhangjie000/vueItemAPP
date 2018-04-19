@@ -20,7 +20,6 @@ TipPop.install = function (Vue) {
     Vue.prototype.$TipPop = (msg, duration = 1500) => {
         instance.message = msg;
         instance.visible = true;
-
         setTimeout(() => {
             instance.visible = false;
         }, duration);
