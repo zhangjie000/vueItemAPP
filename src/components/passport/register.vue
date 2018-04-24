@@ -2,119 +2,59 @@
 <div class="Bg" :style="{ width: innertWith+'px', height: innerHeight + 'px' }">
     <div class="header">
         <router-link class="backIndex" to="/"></router-link>
-        <router-link class="goRegister" to="/register"></router-link>
+        <router-link class="goRegister" to="/login"></router-link>
     </div>
     <div style="height:3rem"></div>
     <div class="loginContent loginHeight">
         <ul>
             <li>
                 <i class="userIphone"></i>
-                <input type="text" name="" v-model="userName" placeholder="请输入手机号" class="userInfor">
+                <input type="text" name=""  placeholder="请输入手机号" class="userInfor">
             </li>
             <li>
                 <i class="codeIcon"></i>
-                <input type="text" placeholder="请输入验证码" v-model="codeName" class="userInfor">
-                <div class="codeIdentify" @click="refreshCode">
-                    <SIdentify :identifyCode="identifyCode"></SIdentify>
-                </div>
+                <input type="text" placeholder="请输入验证码" class="userInfor">
             </li>
             <li>
                 <i class="password"></i>
-                <input type="password" placeholder="请输入密码" v-model="password" class="userInfor" name="">
-            </li>
-            <li>
-                <label class="check"><input type="checkbox" name="" value="">记住密码</label>
-                <a class="fr forgetPassword" href="javascript:;">忘记密码？</a>
+                <input type="password" placeholder="请输入密码" class="userInfor" name="">
             </li>
         </ul>
         <p>
-            <button type="button" class="submit LiearGradientMain2" @click="messageBox">立即登录</button>
+            <button type="button" class="submit LiearGradientMain2" @click="messageBox">立即注册</button>
             <pre class="code"></pre>
         </p>
+        <div class="checkBox">
+            <label for="checkbox">
+                <input type="checkbox" id="checkbox" name="">
+                我已阅读同意
+            </label>
+        </div>
     </div>
 </div>
 </template>
 <script >
-/*验证信息*/
-import messVaildator from "@/lib/messVaildator/messVaildator.js"
-/*验证插件*/
-import Vue from "vue"
-import SIdentify from '@/components/common/identify'
-
 export default{
-    components:{
-        SIdentify
-    },
     data() {
         return{
-
             innertWith:"100px",
             innerHeight:"100px",
-            userName:'',
-            codeName:'',
-            password:'',
-            identifyCodes: "1234567890",
-            identifyCode: ""
+            iphone:"请输入手机号"
         }
     },
     beforeCreate: function() {
 
     },
     mounted(){
+       /* this.$TipPop("用户名错误用户");*/
         /* 获取屏幕的width和height*/
         this.innertWith= window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth ;
         this.innerHeight= window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        //验证码
-        this.identifyCode = "";
-        this.makeCode(this.identifyCodes, 4);
     },
     methods:{
-
         messageBox() {
-            //判断是否是手机号是否正确
-            if(!messVaildator.isMoblie(this.userName)){
-                this.$TipPop("请输入正确的手机号")
-                return false
-                //this.$Message.alert("用户名错误",function() {});
-            }
-            // 判断验证码是否正确
-            if(!(this.identifyCode == this.codeName)){
-                this.$TipPop("请输入正确的验证码");
-                let that=this
-                setTimeout(function() {
-                    that.refreshCode()
-                },2000)
-                return false
-            }
-            if(this.password == "123456"){
-                this.$router.push({path:"/"})
-
-                // 清空数据
-                this.userName=""
-                this.codeName=""
-                this.password=""
-            }else {
-                this.$TipPop("请输入正确的密码");
-            }
-
-
+            /*this.$Message.alert("用户名错误",function() {});*/
         },
-        /*验证码*/
-        randomNum(min, max) {
-          return Math.floor(Math.random() * (max - min) + min);
-        },
-        refreshCode() {
-          this.identifyCode = "";
-          this.makeCode(this.identifyCodes, 4);
-        },
-        makeCode(o, l) {
-          for (let i = 0; i < l; i++) {
-            this.identifyCode += this.identifyCodes[
-              this.randomNum(0, this.identifyCodes.length)
-            ];
-          }
-
-        }
 
     }
 }
@@ -143,7 +83,7 @@ export default{
         }
         .goRegister{
 
-            background:url(http://res.hyft88.com/Content/Resources/Style/Mob/Images/registerBtn.png) center bottom no-repeat;
+            background:url(http://res.hyft88.com/Content/Resources/Style/Mob/Images/loginbtn.png) center bottom no-repeat;
             background-size: p(32px) p(51px);
             font-size: 0.24rem;
             color: #fff;
@@ -207,12 +147,7 @@ export default{
                 background-size: p(39px)  p(39px);
             }
         }
-        li:last-child{
-            height: auto;
-            width: p(528px);
-            margin: 0 auto;
-            margin-bottom: p(62px);
-        }
+
         .check{
             font-size: p(26px);
             color: #5c5c5c;
@@ -236,10 +171,9 @@ export default{
         outline: none;
         border-radius: p(40px);
     }
-}
-.codeIdentify{
-    position: absolute;
-    top:p(10px);
-    right:p(40px);
+    .checkBox{
+        margin-top:p(40px);
+        margin-left:p(15px);
+    }
 }
 </style>

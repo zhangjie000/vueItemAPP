@@ -2,7 +2,7 @@ import TipPopComponent from './tipPop.vue'
 
 const TipPop = {};
 
-// 注册Toast
+// 注册TipPop
 TipPop.install = function (Vue) {
     // 生成一个Vue的子类
     // 同时这个子类也就是组件

@@ -4,6 +4,7 @@
 import axios from 'axios'
 import qs from 'qs';
 
+
 let sh_url,fz_url,hyft_url,hyft,baifu;
 //使用document.domain，实现跨域,axios.create({'content-type': 'application/x-www-form-urlencoded'})实现代理
 let url=document.domain;
@@ -34,6 +35,13 @@ let instance = axios.create({
 });
 //订单搜索~~
 export const backendOrderOrg = params => { return instance.get(`${sh_url}/backend/order/org`,params).then(res => res.data) };
+
+var backendOrderOrg=function (params) {
+  instance.get(`${sh_url}/backend/order/org`,params).then(res => res.data)
+
+  
+
+}
 //投资列表
 export const urlList = params => { return instance.get(`${hyft_url}/Home/LoadPrizes`,params).then(res => res.data) };
 export const prize = params => {return instance.post(`${hyft}/Home/LoadPrizes`,params).then(res => res.data) }

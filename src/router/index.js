@@ -22,6 +22,7 @@ import bidSuccess from "@/components/callBack/bidSuccess"
 
 /*登录注册页面 passport文件夹*/
 import login from "@/components/passport/login"
+import register from "@/components/passport/register"
 
 
 Vue.use(Router)
@@ -87,6 +88,11 @@ export default new Router({
     {
         path:"/login",
         component:login
+    },
+    /*注册页面*/
+    {
+        path:"/register",
+        component:register
     }
 
   ]

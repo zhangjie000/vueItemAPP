@@ -22,6 +22,7 @@
         </tbody>
       </table>
   </div>
+
     <Footer></Footer>
 </div>
 </template>
@@ -29,10 +30,12 @@
 <script >
 import Footer from '@/components/common/footer'
 import nav4 from '@/components/common/nav4'
+
+import axios from 'axios'
 export default{
   components:{
     Footer,
-    nav4
+    nav4,
   },
   data(){
     return {
@@ -40,20 +43,24 @@ export default{
         navList:['全部','项目1','项目2','项目3'],
         /*普通项目内容*/
         normalItemList:[
-        {
-          normalItemTitle:"普通项目 0001",
-          normalItemMonery:"23万",
-          normalItemRate:"9%",
-          normalTitemTime:"30"
-        },
-         {
-          normalItemTitle:"普通项目 0002",
-          normalItemMonery:"23万",
-          normalItemRate:"10%",
-          normalTitemTime:"60"
-        }
-      ]
+          {
+            normalItemTitle:"普通项目 0001",
+            normalItemMonery:"23万",
+            normalItemRate:"9%",
+            normalTitemTime:"30"
+          },
+           {
+            normalItemTitle:"普通项目 0002",
+            normalItemMonery:"23万",
+            normalItemRate:"10%",
+            normalTitemTime:"60"
+          }
+        ],
+
     }
+  },
+  mounted : function(){
+
   },
   methods:{
     /*普通项目切换内容*/
@@ -114,7 +121,7 @@ export default{
     /*点击跳转到购买详情*/
     normalItemLink(){
         this.$router.push({path:'/investDetails'})
-    }
+    },
   }
 
 }

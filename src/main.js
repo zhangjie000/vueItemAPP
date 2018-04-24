@@ -11,6 +11,7 @@ Vue.use(messagePop);
 import tipPop from "./lib/tipPop/tipPop.js"
 Vue.use(tipPop);
 
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({

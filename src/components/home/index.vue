@@ -101,8 +101,6 @@ import qs from 'qs'
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
 
-const API_PROXY = 'https://bird.ioliu.cn/v1/?url='
-
 Vue.prototype.GetSign1 = function (obj) {
   if (obj === undefined) { obj = {} }
 
@@ -228,31 +226,7 @@ export default {
       }
     },1000)
 
-   /* axios.get('http://check.account.czytest.colourlife.com/backend/order/org', )
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });*/
-    axios.post('http://hyft.www.hyft88.com/Home/LoadPrizes').then(json => {　
-        console.log(json.data)
-        console.log(1111)
-      }).catch(err => {
-      　　console.log(err)
-    })
-      $.ajax({
-        url:"http://hyft.www.hyft88.com/Home/LoadPrizes",
-        type:"post",
-        success:function (res) {
-            console.log(res)
-        }
-      })
-    axios.post('https://zhihu-web-analytics.zhihu.com/api/v1/logs/batch' ).then(json => {　
-        console.log(json.data)
-      }).catch(err => {
-      　　console.log(err)
-      })
+
 
     function GetSign(obj) {
       if (obj === undefined) { obj = {} }

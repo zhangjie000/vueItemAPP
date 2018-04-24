@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      visible: true,
+      visible: false,
       message: ""
     };
   }
@@ -29,6 +29,7 @@ export default {
     box-shadow: 0px 8px 15px 0 rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius:5px;
+  /*   display:none; */
     .dialog-tips-icon{
         width: 54px;
         height: 54px;
