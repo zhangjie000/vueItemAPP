@@ -13,8 +13,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "better-scroll": "^1.11.1",
     "crypto": "^1.0.1",
     "echarts": "^4.0.4",
+    "jquery": "^2.2.3",
     "js-md5": "^0.7.3",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.7.2",
@@ -23,8 +25,7 @@
     "sass-loader": "^6.0.7",
     "vue": "^2.5.2",
     "vue-concise-slider": "^2.4.8",
-    "vue-router": "^3.0.1",
-    "jquery" : "^2.2.3"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

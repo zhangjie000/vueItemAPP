@@ -48,7 +48,7 @@ export default {
             {
                 name:'资金来源',
                 type:'pie',
-                radius: ['40%', '60%'],
+                radius:['40%', '60%'],
                 center:["25%","50%"],
                 avoidLabelOverlap: false,
                 label: {
@@ -78,7 +78,6 @@ export default {
                 ]
             }
         ]
-
       })
     }
   }
@@ -89,10 +88,10 @@ export default {
 @function p($px){
   @return $px/75px*1rem;
 }
-  .className{
-    width: 100%;
-    height:p(430px);
-    margin:0 auto;
-    background:#fff;
-  }
+.className{
+  width: 100%;
+  height:p(430px);
+  margin:0 auto;
+  background:#fff;
+}
 </style>

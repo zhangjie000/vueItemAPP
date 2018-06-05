@@ -1,7 +1,12 @@
 <template>
 
-<div id="app">
-    <div class="header">
+<div id="app" style="position: fixed;
+    width: 100%;
+    top: 0px;
+    bottom: 0;">
+<scroll class="wrapper" :data="dataList"  style="height:100%;overflow:hidden;" >
+   <div>
+      <div class="header">
         <div class="left">
             <router-link to='/'></router-link>
         </div>
@@ -45,40 +50,42 @@
 
       </ul>
    </div>
-   <!-- 推荐项目 -->
-  <div class="recommondItem">
-      <h3 class="recommondItemTitle">
-      推荐项目 20180213
-      <i class="leftHalfCircle"></i>
-       <i class="rightHalfCircle"></i>
-      </h3>
-      <div class="progressCir">
-        60%
-      </div>
-      <router-link class="rightbtn LiearGradientMain2"  to="/investDetails">立即购买</router-link><!--
-      <a href="#"></a> -->
-   </div>
- <!-- 普通项目 -->
-  <div class="normalItem" @click="normalItemPath" v-for="item in normalItemList" >
-      <h3 class="normalItemTitle">{{item.normalItemTitle}}</h3>
-      <table>
+     <!-- 推荐项目 -->
+    <div class="recommondItem">
+        <h3 class="recommondItemTitle">
+        推荐项目 20180213
+        <i class="leftHalfCircle"></i>
+         <i class="rightHalfCircle"></i>
+        </h3>
+        <div class="progressCir">
+          60%
+        </div>
+        <router-link class="rightbtn LiearGradientMain2"  to="/investDetails">立即购买</router-link><!--
+        <a href="#"></a> -->
+    </div>
+   <!-- 普通项目 -->
+    <div class="normalItem" @click="normalItemPath" v-for="item in normalItemList" >
+        <h3 class="normalItemTitle">{{item.normalItemTitle}}</h3>
+        <table>
 
-        <tbody>
-          <tr>
-            <td>预期年化率</td>
-            <td>期限(天)</td>
-            <td>剩余<span style="color:#333;">{{item.normalItemMonery}}</span>元</td>
-          </tr>
-           <tr>
-            <td><span class="normalItemRate">{{item.normalItemRate}}</span></td>
-            <td><span class="normalTitemTime">{{item.normalTitemTime}}</span></td>
-            <td>
-              <a class="nowBuyBtn">立即购买</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr>
+              <td>预期年化率</td>
+              <td>期限(天)</td>
+              <td>剩余<span style="color:#333;">{{item.normalItemMonery}}</span>元</td>
+            </tr>
+             <tr>
+              <td><span class="normalItemRate">{{item.normalItemRate}}</span></td>
+              <td><span class="normalTitemTime">{{item.normalTitemTime}}</span></td>
+              <td>
+                <a class="nowBuyBtn">立即购买</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
+</scroll>
 
   <!-- 底部 -->
   <Footer></Footer>
@@ -87,12 +94,7 @@
 </template>
 
 <script>
-/*import {
-  backendOrderOrg,
-  baidu,
-  urlList,
-  prize
-} from "./../../api/api.js"*/
+
 import Vue from 'vue'
 import axios from 'axios'
 import md5 from 'js-md5'
@@ -100,6 +102,7 @@ import qs from 'qs'
 
 import Footer from '@/components/common/footer'
 import bannerCarcousel from '@/components/common/bannerCarousel'
+import scroll from '@/components/common/scroll'
 
 Vue.prototype.GetSign1 = function (obj) {
   if (obj === undefined) { obj = {} }
@@ -138,32 +141,12 @@ Vue.prototype.GetSign1 = function (obj) {
   return md5
 }
 
- //1.排好序 排序的函数
- /*var = {
-    "Mobile": "13036707229",
-    "Password": "ai050618"
- }
-  function objKeySort(arys) {
-      //先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
-      var newkey = Object.keys(arys).sort();　　
-      //console.log('newkey='+newkey);
-      var newObj = {}; //创建一个新的对象，用于存放排好序的键值对
-      for(var i = 0; i < newkey.length; i++) {
-          //遍历newkey数组
-          newObj[newkey[i]] = arys[newkey[i]];
-          //向新创建的对象中按照排好的顺序依次增加键值对
 
-      }
-      return newObj; //返回排好序的新对象
-  }*/
-//1.
-
-
-//console.log(Vue.GetSign({"abgg":12,"aa":11}))
 export default {
  components: {
     Footer,
     bannerCarcousel,
+    scroll
   },
   name: 'App',
   data () {
@@ -200,13 +183,14 @@ export default {
       //头部链接
       routerLink:"/",
       //头部内容
-      headerTitle:"理财产品"
+      headerTitle:"理财产品",
+      dataList:[1,2,3,4]
     }
   },
   methods:{
     normalItemPath(){
       this.$router.push({path:'/investDetails'})
-    },
+    }
 
   },
   computed: {

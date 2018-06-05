@@ -32,7 +32,7 @@ export default{
     @return $px/75px*1rem;
 }
 .navList{
-    overflow:hidden;
+        overflow:hidden;
     li{
         float:left;
         width:33.33%;
